@@ -1,0 +1,38 @@
+{
+  "metadata": {
+    "tipo_documento": "fatura",
+    "modelo_usado": "prebuilt-invoice",
+    "timestamp": "2026-05-20T14:32:00",
+    "sistema": "Azure AI Document Intelligence — Anti-Fraude"
+  },
+  "analise_documento": {
+    "modelo": "prebuilt-invoice",
+    "documentos": [
+      {
+        "tipo": "invoice",
+        "confianca_doc": 0.62,
+        "campos": {
+          "VendorName":    { "valor": "Empresa XYZ LTDA",  "confianca": 0.91 },
+          "InvoiceDate":   { "valor": "2024-01-15",        "confianca": 0.88 },
+          "InvoiceNumber": { "valor": "NF-000123",         "confianca": 0.55 },
+          "TotalAmount":   { "valor": 75000.00,            "confianca": 0.90 }
+        }
+      }
+    ]
+  },
+  "resultado_antifraude": {
+    "score_risco": 70,
+    "nivel_risco": "🔴 ALTO",
+    "alertas": [
+      "⚠️ Confiança do documento (62%) abaixo do mínimo (75%)",
+      "🚨 Valor R$ 75.000,00 ACIMA do limite R$ 50.000,00",
+      "⚠️ Campo 'InvoiceNumber' com baixa confiança: 55%"
+    ],
+    "detalhes": [
+      "Valor detectado: R$ 75.000,00",
+      "Data: 15/01/2024 (125 dias atrás)"
+    ],
+    "recomendacao": "Bloqueie o documento e encaminhe para análise manual imediata.",
+    "timestamp": "2026-05-20T14:32:00"
+  }
+}

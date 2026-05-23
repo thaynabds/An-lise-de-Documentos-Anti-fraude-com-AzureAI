@@ -1,0 +1,3 @@
+# Renomeie para .env e preencha com suas credenciais do Azure
+AZURE_DOCUMENT_ENDPOINT=https://seu-recurso.cognitiveservices.azure.com/
+AZURE_DOCUMENT_KEY=sua_chave_aqui
